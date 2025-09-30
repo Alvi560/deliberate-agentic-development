@@ -1,0 +1,11 @@
+{
+  "project_speed": "fast",
+  "project_type": "new",
+  "project_phase": "implementing",
+  "current": {
+    "milestone": "M3",
+    "issue": "M3.1",
+    "task": "M3.1.1",
+    "branch": "{{TICKET_PREFIX}}-21"
+  }
+}
