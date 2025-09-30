@@ -353,4 +353,4 @@ testing/
 
 ---
 
-**License:** MIT - See [LICENSE](../LICENSE) file for details.
+**License:** MIT - See [LICENSE](LICENSE) file for details.
