@@ -120,8 +120,8 @@ your-project/
     │   ├── systems/             # Feature documentation (empty to start)
     │   └── project-archive/     # Completed project exports (empty to start)
     └── rules/
-        ├── PRE-COMMIT-RULES.md  # Commit-time checks (RECOMMENDED)
-        └── PRE-PUSH-RULES.md    # Pre-push checks (RECOMMENDED)
+        ├── PRE-COMMIT-RULES.md  # Commit-time checks (RECOMMENDED, create from template)
+        └── PRE-PUSH-RULES.md    # Pre-push checks (RECOMMENDED, create from template)
 ```
 
 ### As Your Project Grows
@@ -261,8 +261,8 @@ testing/
 │       ├── NOTIFICATIONS.md           # Email, push, in-app
 │       └── FILE-UPLOAD.md             # S3, image processing
 └── rules/
-    ├── PRE-COMMIT-RULES.md            # RECOMMENDED
-    ├── PRE-PUSH-RULES.md              # RECOMMENDED
+    ├── PRE-COMMIT-RULES.md            # RECOMMENDED (create from template)
+    ├── PRE-PUSH-RULES.md              # RECOMMENDED (create from template)
     ├── CORE-RULES.md                  # Error handling, logging
     ├── API-RULES.md                   # REST conventions
     ├── DATABASE-RULES.md              # Schema patterns
@@ -295,8 +295,8 @@ testing/
 │       ├── CACHING.md                 # Redis strategy
 │       └── QUEUE-PROCESSING.md        # Background jobs, workers
 └── rules/
-    ├── PRE-COMMIT-RULES.md            # RECOMMENDED
-    ├── PRE-PUSH-RULES.md              # RECOMMENDED
+    ├── PRE-COMMIT-RULES.md            # RECOMMENDED (create from template)
+    ├── PRE-PUSH-RULES.md              # RECOMMENDED (create from template)
     ├── CORE-RULES.md                  # Error handling, logging
     ├── API-RULES.md                   # Endpoint conventions
     ├── DATABASE-RULES.md              # Schema, indexes
@@ -323,8 +323,8 @@ testing/
 │       ├── AUTHENTICATION.md          # Token handling, refresh
 │       └── UI-COMPONENTS.md           # Design system, shared components
 └── rules/
-    ├── PRE-COMMIT-RULES.md            # RECOMMENDED
-    ├── PRE-PUSH-RULES.md              # RECOMMENDED
+    ├── PRE-COMMIT-RULES.md            # RECOMMENDED (create from template)
+    ├── PRE-PUSH-RULES.md              # RECOMMENDED (create from template)
     ├── CORE-RULES.md                  # Error handling, logging
     ├── COMPONENT-RULES.md             # Structure, naming, props
     ├── STYLING-RULES.md               # CSS conventions, Tailwind
@@ -352,8 +352,8 @@ testing/
 │       ├── NOTIFICATION-SERVICE.md    # Email/SMS service
 │       └── API-GATEWAY.md             # Request routing
 └── rules/
-    ├── PRE-COMMIT-RULES.md            # RECOMMENDED
-    ├── PRE-PUSH-RULES.md              # RECOMMENDED
+    ├── PRE-COMMIT-RULES.md            # RECOMMENDED (create from template)
+    ├── PRE-PUSH-RULES.md              # RECOMMENDED (create from template)
     ├── CORE-RULES.md                  # Cross-service patterns
     ├── API-RULES.md                   # REST/gRPC conventions
     ├── SERVICE-RULES.md               # Service boundaries
