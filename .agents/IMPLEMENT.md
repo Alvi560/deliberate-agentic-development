@@ -32,7 +32,7 @@ This document contains the detailed implementation workflow. It's loaded after p
 4. **Task Loop:**
    a. **Test Development** - {{SLOW ONLY}} Write tests using TDD (see 1.4)
    b. **Task Implementation** - Code one task following defined approach (see 1.5)
-   c. **Pre-Commit Validation** - Run applicable validation based on changed files (see 1.6)
+   c. **Pre-Commit Validation** - If configured, run checks defined in `.agents/rules/PRE-COMMIT-RULES.md` (see 1.6)
    d. **Commit Review** - Present review to user, get approval [CHECKPOINT - Review] (see 1.7)
    e. **Commit** - Execute git commit with proper message format (see 1.7)
    f. **Linear Task Checkbox** - Check off completed task in issue description
@@ -137,48 +137,19 @@ i. Update state.json
 
 ### 1.6 Pre-Commit Validation
 
-**How to use PRE-COMMIT-RULES.md:**
-- Match sections to modified files (Frontend/Backend/Database)
-- Extract commands (skip placeholders)
-- Run all extracted commands
-- All must exit with code 0
+Use `.agents/rules/PRE-COMMIT-RULES.md` to define commit-time checks (for example, format, lint, typecheck, unit/integration tests).
 
-If `.agents/rules/PRE-COMMIT-RULES.md` is not present, skip this subsection and proceed with manual testing and any project-specific checks.
-
-**Validation steps:**
-
-1. **Manual Testing {{ALL MODES}}**
-   - Start dev server
-   - Test implemented features
-   - Check console/logs for errors
-   - Verify no regressions
-
-2. **Code Quality Checks**
-   - Run checks from PRE-COMMIT-RULES.md
-   - Fix any issues
-   - Re-run until all pass
-
-3. **Tests {{SLOW ONLY}}**
-   - Run test commands per change type
-   - Verify all tests pass
-   - Check coverage meets thresholds
-
-**Do not proceed until all checks pass**
+- If the file is missing, skip this step.
+- Run the configured checks and ensure all exit with code 0.
+- In SLOW mode, include test commands; do not commit until checks pass.
 
 ### 1.6.1 Pre-Push Checks
 
-Applies in all modes. Use `.agents/rules/PRE-PUSH-RULES.md` to define which checks run before pushing (for example, Playwright E2E and production builds). Configure the exact checks per project or mode in that rules file. If the file is not present, skip this step.
+Use `.agents/rules/PRE-PUSH-RULES.md` to define checks to run before pushing (for example, Playwright E2E and a production build).
 
-How to use PRE-PUSH-RULES.md:
-- Run checks listed in the file (e.g., `npx playwright test`, `vite build`). If none are defined, skip.
-- All commands must exit with code 0.
-- If configured, do not proceed to PR creation until all pre-push checks pass.
-
-**Validation steps:**
-
-1. Run checks from PRE-PUSH-RULES.md (e.g., E2E/build).
-2. Fix any issues and re-run until all pass.
-3. If configured, do not proceed to PR creation until all pre-push checks pass.
+- If the file is missing or the project is in FAST mode, skip this step.
+- Run the configured checks and ensure all exit with code 0.
+- In SLOW mode, do not create a PR until pre-push checks pass.
 
 Run these on `pre-push` or in CI to keep commits fast while protecting the main branch.
 
