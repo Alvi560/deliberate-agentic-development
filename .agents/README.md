@@ -219,9 +219,9 @@ Documents how features work in your application:
 **User-controlled** - Agent can suggest, but you decide
 
 Define coding patterns and conventions:
-- `PRE-COMMIT-RULES.md` - **RECOMMENDED** - Commit-time validation commands (create from template)
-- `PRE-PUSH-RULES.md` - **RECOMMENDED** - Pre-push checks (E2E/build) (create from template)
-- `CORE-RULES.md` - Error handling, logging, config
+- `PRE-COMMIT-RULES.md` - **RECOMMENDED** - Commit-time validation commands
+- `PRE-PUSH-RULES.md` - **RECOMMENDED** - Pre-push checks (E2E/build)
+- `CORE-RULES.md` - Shared practices
 - `API-RULES.md` - REST conventions, error codes
 - `DATABASE-RULES.md` - Schema patterns, migrations
 - `FRONTEND-RULES.md` - Component structure, state
