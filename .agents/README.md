@@ -62,6 +62,17 @@ cp -r .agents/ /path/to/your/project/
 
 ### 3. Configure PRE-COMMIT-RULES.md and PRE-PUSH-RULES.md (Recommended)
 
+You can enable optional validation files by copying from templates and then editing to match your stack:
+
+```bash
+# Enable commit-time checks (recommended)
+mkdir -p .agents/rules
+cp .agents/templates/PRE-COMMIT-RULES-TEMPLATE.md .agents/rules/PRE-COMMIT-RULES.md
+
+# Enable pre-push checks (recommended)
+cp .agents/templates/PRE-PUSH-RULES-TEMPLATE.md .agents/rules/PRE-PUSH-RULES.md
+```
+
 Edit `.agents/rules/PRE-COMMIT-RULES.md` with your actual validation commands and, if desired, configure `.agents/rules/PRE-PUSH-RULES.md` for E2E/build checks:
 
 ```markdown
@@ -80,6 +91,15 @@ Open your AI agent and say:
 
 The agent will load the workflow system and guide you through project planning.
 
+#### Optional: Initialize Product Overview
+
+If `.agents/documentation/PRODUCT-OVERVIEW.md` is missing, create it from the template:
+
+```bash
+mkdir -p .agents/documentation
+cp .agents/templates/PRODUCT-OVERVIEW-TEMPLATE.md .agents/documentation/PRODUCT-OVERVIEW.md
+```
+
 ## File Structure
 
 ### Minimal Setup
@@ -96,7 +116,7 @@ your-project/
     ├── state.json               # Tracks progress
     ├── templates/               # Ready-to-use templates
     ├── documentation/
-    │   ├── PRODUCT-OVERVIEW.md  # Your project vision
+    │   ├── PRODUCT-OVERVIEW.md  # Your project vision (create from template)
     │   ├── systems/             # Feature documentation (empty to start)
     │   └── project-archive/     # Completed project exports (empty to start)
     └── rules/
@@ -118,7 +138,7 @@ your-project/
 │   ├── state.json               # Current position tracker
 │   ├── templates/               # All reusable templates
 │   ├── documentation/
-│   │   ├── PRODUCT-OVERVIEW.md    # Your project vision
+│   │   ├── PRODUCT-OVERVIEW.md    # Your project vision (create from template)
 │   │   ├── systems/
 │   │   │   ├── AUTHENTICATION.md    # [CURRENT] OAuth, sessions, permissions
 │   │   │   ├── NOTIFICATIONS.md     # [CURRENT] Email, push, in-app
