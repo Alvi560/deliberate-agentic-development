@@ -52,9 +52,9 @@ This document contains the detailed implementation workflow. It's loaded after p
    g. **Check Documentation** - Review what changed in this issue, update docs if needed (see Section 5)
    h. **More Issues?** If yes → Return to step 1
 7. **Milestone Completion:**
-   a. **Milestone Review** - Present milestone review, get approval [CHECKPOINT - Review] (see 1.10)
+   a. **Milestone Review** - Present milestone review, get approval [CHECKPOINT - Review] (see 1.11)
    b. **State Update** - Update state.json (move to next milestone)
-   c. **Update Parent Ticket** - Mark milestone complete in parent ticket (see 1.10)
+   c. **Update Parent Ticket** - Mark milestone complete in parent ticket (see 1.11)
    d. **Linear Milestone Comment** - Add milestone review as comment to Parent Ticket
    e. **Check Documentation** - Comprehensive review of all milestone changes, update docs if needed (see Section 5)
    f. **More Milestones?** If yes → Return to step 1 for next milestone
@@ -219,19 +219,19 @@ i. Check documentation: Review what changed in this issue, update docs if needed
 - Check for remaining issues in milestone
 - **Next:** More issues? → 1.1, Milestone complete? → Continue to 1.11.2
 
-#### 1.10.2 Milestone Review **[CHECKPOINT - Review]**
+#### 1.11.2 Milestone Review **[CHECKPOINT - Review]**
 - Determine next step based on remaining milestones
 - Present milestone review using {{MILESTONE-REVIEW-TEMPLATE}}
 - Review all shipped features
 - Verify demo readiness
 - Get user approval
 
-#### 1.10.3 Post-Milestone-Review Actions
+#### 1.11.3 Post-Milestone-Review Actions
 - Update state.json (move to next milestone)
 - Update Parent Ticket (mark milestone complete)
 - Add Linear comment with milestone review to Parent Ticket
 - Check documentation: Comprehensive review of all milestone changes, update docs if needed (see Section 5)
-- **Next:** More milestones? → 1.1, Project complete? → 1.11
+- **Next:** More milestones? → 1.1, Project complete? → 1.12
 
 ### 1.12 Project Archive (Project Complete)
 
