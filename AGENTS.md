@@ -101,6 +101,11 @@ PROJECT_ROOT=/path/to/project # Project root (change to your path)
 #### Essential Command Line Tools
 - **Git** - Version control
 - **GitHub CLI** (`gh`) - Pull request and repository management
+- **Node.js (>=18) + npm/pnpm** - Frontend build, tests, lint/format
+- **Python (>=3.11) + pip/uv** - Backend app, tests, lint/format/typecheck
+- **Playwright CLI** - End-to-end browser testing
+- **ESLint + Prettier** - Frontend linting/formatting
+- **Ruff + Black + Mypy + Pytest** - Backend linting/formatting/type/tests
 
 #### Required MCPs
 - **Linear MCP** - Issue tracking and project management
@@ -109,6 +114,8 @@ PROJECT_ROOT=/path/to/project # Project root (change to your path)
 - **Notion MCP** - Documentation and tech stack preferences
 - **Playwright MCP** - Browser automation for E2E testing
 - **Chrome DevTools MCP** - Browser debugging and inspection
+
+Note: If your project’s toolchain changes, update this section and `.agents/README.md` to keep the workflow accurate.
 
 ### Naming Conventions
 
@@ -259,7 +266,8 @@ Project (in Linear)
 | **Task Notation** | `Create User model` | `Create User model [+unit tests]` |
 | **E2E Testing** | None | Dedicated E2E issue per milestone |
 | **Review Templates** | No test results section | Include test results & coverage |
-| **Pre-Commit** | Lint, format, manual test | Lint, format, tests, manual test |
+| **Pre-Commit** | Lint, format, manual test | Lint, format, unit/integration tests, manual test |
+| **Pre-Push** | Skipped | Required: E2E suite + production build |
 | **Goal** | Ship demos quickly | Production-ready code |
 
 **Both Modes Require:**
@@ -322,7 +330,7 @@ If decision affects future work, other systems, testing strategy, or performance
 
 **Rules (User-Maintained):**
 - `.agents/rules/*.md` - Project patterns and standards
-- **Required:** PRE-COMMIT-RULES.md
+- **Recommended:** PRE-COMMIT-RULES.md (commit-time checks) and PRE-PUSH-RULES.md (pre-push checks)
 - **TOC Requirement:** Always include Table of Contents for easy navigation
 - **Agent Behavior:** Never automatically create or update rules without user approval
   - If user says "never do X" or "always do Y", ask: "Should I create/update a rule for this pattern?"

@@ -11,11 +11,12 @@ This document contains the detailed implementation workflow. It's loaded after p
    - 1.4 [Test Development](#14-test-development-slow-only)
    - 1.5 [Task Implementation](#15-task-implementation)
    - 1.6 [Pre-Commit Validation](#16-pre-commit-validation)
-   - 1.7 [Commit Review & Commit](#17-commit-review--commit)
-   - 1.8 [Interrupt Flows](#18-interrupt-flows-bugfixes--conflicts)
-   - 1.9 [PR Review & Merge](#19-pr-review--merge)
-   - 1.10 [Post-PR-Merge Actions](#110-post-pr-merge-actions)
-   - 1.11 [Project Archive](#111-project-archive-project-complete)
+   - 1.7 [Pre-Push Checks](#17-pre-push-checks)
+   - 1.8 [Commit Review & Commit](#18-commit-review--commit)
+   - 1.9 [Interrupt Flows](#19-interrupt-flows-bugfixes--conflicts)
+   - 1.10 [PR Review & Merge](#110-pr-review--merge)
+   - 1.11 [Post-PR-Merge Actions](#111-post-pr-merge-actions)
+   - 1.12 [Project Archive](#112-project-archive-project-complete)
 2. [FAST vs SLOW Mode Differences](#2-fast-vs-slow-mode-differences)
 3. [Checkpoint System](#3-checkpoint-system)
 4. [State Management](#4-state-management)
@@ -32,27 +33,28 @@ This document contains the detailed implementation workflow. It's loaded after p
 4. **Task Loop:**
    a. **Test Development** - {{SLOW ONLY}} Write tests using TDD (see 1.4)
    b. **Task Implementation** - Code one task following defined approach (see 1.5)
-   c. **Pre-Commit Validation** - Run applicable validation based on changed files (see 1.6)
-   d. **Commit Review** - Present review to user, get approval [CHECKPOINT - Review] (see 1.7)
-   e. **Commit** - Execute git commit with proper message format (see 1.7)
+   c. **Pre-Commit Validation** - If configured, run checks defined in `.agents/rules/PRE-COMMIT-RULES.md` (see 1.6)
+   d. **Commit Review** - Present review to user, get approval [CHECKPOINT - Review] (see 1.8)
+   e. **Commit** - Execute git commit with proper message format (see 1.8)
    f. **Linear Task Checkbox** - Check off completed task in issue description
    g. **Linear Comment** - Add commit details as comment
    h. **State Update** - Update state.json (increment task number)
    i. **Check Documentation** - Does this commit introduce new systems or change existing ones? Update if needed (see Section 5)
    j. **More Tasks?** If yes → Loop back to step 4a
-5. **PR Process:**
+5. **Pre-Push Checks** - If configured locally, run checks defined in `.agents/rules/PRE-PUSH-RULES.md` before pushing; otherwise rely on CI
+6. **PR Process:**
    a. **State Update** - Update state.json (move to next issue or milestone)
-   b. **Create PR** - Push branch and create PR from feature branch to master (see 1.9)
-   c. **PR Review** - Present PR review to user, get approval [CHECKPOINT - Review] (see 1.9)
-   d. **Merge PR** - Auto-approve and merge after approval (see 1.9)
-   e. **Mark Issue Done** - Update issue status to Done in Linear (see 1.10)
+   b. **Create PR** - Push branch and create PR from feature branch to master (see 1.10)
+   c. **PR Review** - Present PR review to user, get approval [CHECKPOINT - Review] (see 1.10)
+   d. **Merge PR** - Auto-approve and merge after approval (see 1.10)
+   e. **Mark Issue Done** - Update issue status to Done in Linear (see 1.11)
    f. **Linear PR Comment** - Add PR review content as comment
    g. **Check Documentation** - Review what changed in this issue, update docs if needed (see Section 5)
    h. **More Issues?** If yes → Return to step 1
-6. **Milestone Completion:**
-   a. **Milestone Review** - Present milestone review, get approval [CHECKPOINT - Review] (see 1.10)
+7. **Milestone Completion:**
+   a. **Milestone Review** - Present milestone review, get approval [CHECKPOINT - Review] (see 1.11)
    b. **State Update** - Update state.json (move to next milestone)
-   c. **Update Parent Ticket** - Mark milestone complete in parent ticket (see 1.10)
+   c. **Update Parent Ticket** - Mark milestone complete in parent ticket (see 1.11)
    d. **Linear Milestone Comment** - Add milestone review as comment to Parent Ticket
    e. **Check Documentation** - Comprehensive review of all milestone changes, update docs if needed (see Section 5)
    f. **More Milestones?** If yes → Return to step 1 for next milestone
@@ -136,33 +138,23 @@ i. Update state.json
 
 ### 1.6 Pre-Commit Validation
 
-**How to use PRE-COMMIT-RULES.md:**
-- Match sections to modified files (Frontend/Backend/Database)
-- Extract commands (skip placeholders)
-- Run all extracted commands
-- All must exit with code 0
+Use `.agents/rules/PRE-COMMIT-RULES.md` to define commit-time checks (for example, format, lint, typecheck, unit/integration tests).
 
-**Validation steps:**
+- If the file is missing, skip this step.
+- Run the configured checks and ensure all exit with code 0.
+- In SLOW mode, include test commands; do not commit until checks pass.
 
-1. **Manual Testing {{ALL MODES}}**
-   - Start dev server
-   - Test implemented features
-   - Check console/logs for errors
-   - Verify no regressions
+### 1.7 Pre-Push Checks
 
-2. **Code Quality Checks**
-   - Run checks from PRE-COMMIT-RULES.md
-   - Fix any issues
-   - Re-run until all pass
+Use `.agents/rules/PRE-PUSH-RULES.md` to define checks to run before pushing (for example, Playwright E2E and a production build).
 
-3. **Tests {{SLOW ONLY}}**
-   - Run test commands per change type
-   - Verify all tests pass
-   - Check coverage meets thresholds
+- If the file is missing or the project is in FAST mode, skip locally.
+- Run the configured checks and ensure all exit with code 0.
+- In SLOW mode, ensure checks pass before merge; run via a local pre-push hook or rely on CI.
 
-**Do not proceed until all checks pass**
+Run locally (pre-push) or in CI to keep commits fast while protecting the main branch.
 
-### 1.7 Commit Review & Commit
+### 1.8 Commit Review & Commit
 
 **[CHECKPOINT - Review]**
 - Confirm all lint/format checks passed
@@ -177,11 +169,11 @@ i. Update state.json
 - Add Linear comment (exact Commit Review text that was approved)
 - Update state.json (increment task number)
 - Check documentation: Did this commit introduce new systems or change existing ones? Update if needed (see Section 5)
-- **Next:** More tasks? → 1.5, Tasks done? → 1.9
+- **Next:** More tasks? → 1.5, Tasks done? → 1.10
 
-### 1.8 Interrupt Flows (Bugfixes & Conflicts)
+### 1.9 Interrupt Flows (Bugfixes & Conflicts)
 
-#### 1.8.1 Bug Documentation Flow
+#### 1.9.1 Bug Documentation Flow
 
 When bug discovered during implementation:
 
@@ -195,7 +187,7 @@ g. User decides priority
 
 **Important:** Do NOT automatically fix bugs. Document them and let user decide when to address.
 
-#### 1.8.2 Merge Conflict
+#### 1.9.2 Merge Conflict
 
 When conflicts occur:
 a. Surface conflict to user
@@ -204,7 +196,7 @@ c. Get user guidance
 d. Apply resolution
 e. Continue workflow
 
-### 1.9 PR Creation & Review
+### 1.10 PR Creation & Review
 
 **Create PR first, then present review:**
 
@@ -221,27 +213,27 @@ g. Mark Issue as Done in Linear
 h. Add Linear comment (exact PR Review content)
 i. Check documentation: Review what changed in this issue, update docs if needed (see Section 5)
 
-### 1.10 Post-PR-Merge Actions
+### 1.11 Post-PR-Merge Actions
 
-#### 1.10.1 Check Milestone Status
+#### 1.11.1 Check Milestone Status
 - Check for remaining issues in milestone
-- **Next:** More issues? → 1.1, Milestone complete? → Continue to 1.10.2
+- **Next:** More issues? → 1.1, Milestone complete? → Continue to 1.11.2
 
-#### 1.10.2 Milestone Review **[CHECKPOINT - Review]**
+#### 1.11.2 Milestone Review **[CHECKPOINT - Review]**
 - Determine next step based on remaining milestones
 - Present milestone review using {{MILESTONE-REVIEW-TEMPLATE}}
 - Review all shipped features
 - Verify demo readiness
 - Get user approval
 
-#### 1.10.3 Post-Milestone-Review Actions
+#### 1.11.3 Post-Milestone-Review Actions
 - Update state.json (move to next milestone)
 - Update Parent Ticket (mark milestone complete)
 - Add Linear comment with milestone review to Parent Ticket
 - Check documentation: Comprehensive review of all milestone changes, update docs if needed (see Section 5)
-- **Next:** More milestones? → 1.1, Project complete? → 1.11
+- **Next:** More milestones? → 1.1, Project complete? → 1.12
 
-### 1.11 Project Archive (Project Complete)
+### 1.12 Project Archive (Project Complete)
 
 1. **Celebrate completion!** 🎉
 2. Ask user: "Would you like to archive the project documentation from Linear?"
@@ -275,12 +267,14 @@ i. Check documentation: Review what changed in this issue, update docs if needed
 - Testing: Manual only
 - Skip: Section 1.4 (Test Development), test results in reviews
 - When: MVPs, prototypes, demos
+ - Pre-Push Checks: Skipped (no E2E/build enforced)
 
 **SLOW Mode:**
 - Goal: Production-ready code
 - Testing: Full TDD with unit & E2E tests
 - Requires: Tests before implementation, coverage in reviews
 - When: Production systems, critical features
+ - Pre-Push Checks: Required (E2E suite + production build must pass)
 
 **Both Modes Require:**
 - Linting and formatting
