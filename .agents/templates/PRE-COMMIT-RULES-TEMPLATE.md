@@ -103,9 +103,10 @@ The agent runs checks based on which files were modified.
 # [YOUR_COMMAND_HERE]
 ```
 
-## Notes
-- Commands with [YOUR_COMMAND_HERE] are placeholders - replace with actual commands
-- Comments (#) are ignored by the agent
-- Agent determines which sections to run based on modified files
-- All applicable commands must pass (exit code 0) before commit
-- SLOW mode runs test commands, FAST mode skips them
+## Usage Notes
+- Commands with [YOUR_COMMAND_HERE] are placeholders — replace with actual commands.
+- Comments (#) are ignored by the agent.
+- Agent determines which sections to run based on modified files.
+- All applicable commands must pass (exit code 0) before commit.
+- SLOW mode runs test commands, FAST mode skips them.
+- E2E tests are typically configured in PRE-PUSH-RULES.md to keep commits fast; include them here only if you want E2E on commit.

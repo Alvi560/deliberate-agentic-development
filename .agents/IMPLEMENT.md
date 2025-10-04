@@ -40,7 +40,8 @@ This document contains the detailed implementation workflow. It's loaded after p
    h. **State Update** - Update state.json (increment task number)
    i. **Check Documentation** - Does this commit introduce new systems or change existing ones? Update if needed (see Section 5)
    j. **More Tasks?** If yes → Loop back to step 4a
-5. **PR Process:**
+5. **Pre-Push Checks** - If configured, run checks defined in `.agents/rules/PRE-PUSH-RULES.md` before pushing
+6. **PR Process:**
    a. **State Update** - Update state.json (move to next issue or milestone)
    b. **Create PR** - Push branch and create PR from feature branch to master (see 1.9)
    c. **PR Review** - Present PR review to user, get approval [CHECKPOINT - Review] (see 1.9)
@@ -142,6 +143,8 @@ i. Update state.json
 - Run all extracted commands
 - All must exit with code 0
 
+If `.agents/rules/PRE-COMMIT-RULES.md` is not present, skip this subsection and proceed with manual testing and any project-specific checks.
+
 **Validation steps:**
 
 1. **Manual Testing {{ALL MODES}}**
@@ -161,6 +164,23 @@ i. Update state.json
    - Check coverage meets thresholds
 
 **Do not proceed until all checks pass**
+
+### 1.6.1 Pre-Push Checks
+
+Applies in all modes. Use `.agents/rules/PRE-PUSH-RULES.md` to define which checks run before pushing (for example, Playwright E2E and production builds). Configure the exact checks per project or mode in that rules file. If the file is not present, skip this step.
+
+How to use PRE-PUSH-RULES.md:
+- Run checks listed in the file (e.g., `npx playwright test`, `vite build`). If none are defined, skip.
+- All commands must exit with code 0.
+- If configured, do not proceed to PR creation until all pre-push checks pass.
+
+**Validation steps:**
+
+1. Run checks from PRE-PUSH-RULES.md (e.g., E2E/build).
+2. Fix any issues and re-run until all pass.
+3. If configured, do not proceed to PR creation until all pre-push checks pass.
+
+Run these on `pre-push` or in CI to keep commits fast while protecting the main branch.
 
 ### 1.7 Commit Review & Commit
 
@@ -275,12 +295,14 @@ i. Check documentation: Review what changed in this issue, update docs if needed
 - Testing: Manual only
 - Skip: Section 1.4 (Test Development), test results in reviews
 - When: MVPs, prototypes, demos
+ - Pre-Push Checks: Skipped (no E2E/build enforced)
 
 **SLOW Mode:**
 - Goal: Production-ready code
 - Testing: Full TDD with unit & E2E tests
 - Requires: Tests before implementation, coverage in reviews
 - When: Production systems, critical features
+ - Pre-Push Checks: Required (E2E suite + production build must pass)
 
 **Both Modes Require:**
 - Linting and formatting
