@@ -116,12 +116,12 @@ your-project/
     ├── state.json               # Tracks progress
     ├── templates/               # Ready-to-use templates
     ├── documentation/
-    │   ├── PRODUCT-OVERVIEW.md  # Your project vision (create from template)
+    │   ├── PRODUCT-OVERVIEW.md  # Your project vision
     │   ├── systems/             # Feature documentation (empty to start)
     │   └── project-archive/     # Completed project exports (empty to start)
     └── rules/
-        ├── PRE-COMMIT-RULES.md  # Commit-time checks (RECOMMENDED, create from template)
-        └── PRE-PUSH-RULES.md    # Pre-push checks (RECOMMENDED, create from template)
+        ├── PRE-COMMIT-RULES.md  # Commit-time checks (RECOMMENDED)
+        └── PRE-PUSH-RULES.md    # Pre-push checks (RECOMMENDED)
 ```
 
 ### As Your Project Grows
@@ -138,7 +138,7 @@ your-project/
 │   ├── state.json               # Current position tracker
 │   ├── templates/               # All reusable templates
 │   ├── documentation/
-│   │   ├── PRODUCT-OVERVIEW.md    # Your project vision (create from template)
+│   │   ├── PRODUCT-OVERVIEW.md    # Your project vision
 │   │   ├── systems/
 │   │   │   ├── AUTHENTICATION.md    # [CURRENT] OAuth, sessions, permissions
 │   │   │   ├── NOTIFICATIONS.md     # [CURRENT] Email, push, in-app
@@ -152,8 +152,8 @@ your-project/
 │   │           ├── {{TICKET_PREFIX}}-102.md        # Individual issue
 │   │           └── {{TICKET_PREFIX}}-103.md        # Individual issue
 │   └── rules/
-│       ├── PRE-COMMIT-RULES.md            # (create from template)
-│       ├── PRE-PUSH-RULES.md              # (create from template)
+│       ├── PRE-COMMIT-RULES.md
+│       ├── PRE-PUSH-RULES.md
 │       ├── CORE-RULES.md
 │       ├── API-RULES.md             # REST conventions, error codes
 │       ├── DATABASE-RULES.md        # Schema patterns, migrations
@@ -263,7 +263,7 @@ testing/
 └── rules/
     ├── PRE-COMMIT-RULES.md            # RECOMMENDED (create from template)
     ├── PRE-PUSH-RULES.md              # RECOMMENDED (create from template)
-    ├── CORE-RULES.md                  # Error handling, logging
+    ├── CORE-RULES.md                  # Shared practices
     ├── API-RULES.md                   # REST conventions
     ├── DATABASE-RULES.md              # Schema patterns
     ├── FRONTEND-RULES.md              # Component structure
@@ -297,7 +297,7 @@ testing/
 └── rules/
     ├── PRE-COMMIT-RULES.md            # RECOMMENDED (create from template)
     ├── PRE-PUSH-RULES.md              # RECOMMENDED (create from template)
-    ├── CORE-RULES.md                  # Error handling, logging
+    ├── CORE-RULES.md                  # Shared practices
     ├── API-RULES.md                   # Endpoint conventions
     ├── DATABASE-RULES.md              # Schema, indexes
     └── testing/
@@ -325,7 +325,7 @@ testing/
 └── rules/
     ├── PRE-COMMIT-RULES.md            # RECOMMENDED (create from template)
     ├── PRE-PUSH-RULES.md              # RECOMMENDED (create from template)
-    ├── CORE-RULES.md                  # Error handling, logging
+    ├── CORE-RULES.md                  # Shared practices
     ├── COMPONENT-RULES.md             # Structure, naming, props
     ├── STYLING-RULES.md               # CSS conventions, Tailwind
     └── testing/
@@ -354,7 +354,7 @@ testing/
 └── rules/
     ├── PRE-COMMIT-RULES.md            # RECOMMENDED (create from template)
     ├── PRE-PUSH-RULES.md              # RECOMMENDED (create from template)
-    ├── CORE-RULES.md                  # Cross-service patterns
+    ├── CORE-RULES.md                  # Shared practices
     ├── API-RULES.md                   # REST/gRPC conventions
     ├── SERVICE-RULES.md               # Service boundaries
     ├── DATABASE-RULES.md              # Per-service DBs
