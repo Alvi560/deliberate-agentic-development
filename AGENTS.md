@@ -85,14 +85,14 @@ FREEMODE allows you to temporarily disable all workflow rules and context loadin
 
 ## 2. Required Tools & Configuration
 
-*Note: This section shows the default setup. See .agents/README.md for configuration options.*
+*Note: This section defines agent tooling requirements only. Document your tech stack in PRODUCT-OVERVIEW.md.*
 
 ### Core Configuration
 ```
 PM_TOOL=Linear                # Project management tool
 GIT_PLATFORM=GitHub           # Git platform
-TICKET_PREFIX=MAT             # Ticket prefix (change to your prefix)
-PROJECT_NAME=portfolio-site   # Project name (change to your project)
+TICKET_PREFIX=XXX             # Ticket prefix (change to your prefix)
+PROJECT_NAME=your-project     # Project name (change to your project)
 PROJECT_ROOT=/path/to/project # Project root (change to your path)
 ```
 
@@ -101,21 +101,11 @@ PROJECT_ROOT=/path/to/project # Project root (change to your path)
 #### Essential Command Line Tools
 - **Git** - Version control
 - **GitHub CLI** (`gh`) - Pull request and repository management
-- **Node.js (>=18) + npm/pnpm** - Frontend build, tests, lint/format
-- **Python (>=3.11) + pip/uv** - Backend app, tests, lint/format/typecheck
-- **Playwright CLI** - End-to-end browser testing
-- **ESLint + Prettier** - Frontend linting/formatting
-- **Ruff + Black + Mypy + Pytest** - Backend linting/formatting/type/tests
 
 #### Required MCPs
-- **Linear MCP** - Issue tracking and project management
+- **Linear MCP** - Issue tracking and project management (or your configured PM_TOOL MCP)
 
-### Optional MCPs
-- **Notion MCP** - Documentation and tech stack preferences
-- **Playwright MCP** - Browser automation for E2E testing
-- **Chrome DevTools MCP** - Browser debugging and inspection
-
-Note: If your project’s toolchain changes, update this section and `.agents/README.md` to keep the workflow accurate.
+**Note:** Build tools, language runtimes, testing frameworks, and other project-specific tooling should be documented in `.agents/documentation/PRODUCT-OVERVIEW.md` under the Tech Stack section, not here.
 
 ### Naming Conventions
 

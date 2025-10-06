@@ -99,7 +99,6 @@ The agent runs checks based on which files were modified.
 ```bash
 # E2E tests (SLOW mode, E2E testing issues only)
 # Example: npm run test:e2e
-# Example: playwright test
 # [YOUR_COMMAND_HERE]
 ```
 
