@@ -146,7 +146,7 @@ Use `.agents/rules/PRE-COMMIT-RULES.md` to define commit-time checks (for exampl
 
 ### 1.7 Pre-Push Checks
 
-Use `.agents/rules/PRE-PUSH-RULES.md` to define checks to run before pushing (for example, Playwright E2E and a production build).
+Use `.agents/rules/PRE-PUSH-RULES.md` to define checks to run before pushing (for example, E2E tests and production build).
 
 - If the file is missing or the project is in FAST mode, skip locally.
 - Run the configured checks and ensure all exit with code 0.

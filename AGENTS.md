@@ -85,14 +85,14 @@ FREEMODE allows you to temporarily disable all workflow rules and context loadin
 
 ## 2. Required Tools & Configuration
 
-*Note: This section shows the default setup. See .agents/README.md for configuration options.*
+*Note: This section defines agent tooling requirements only. Document your tech stack in PRODUCT-OVERVIEW.md.*
 
 ### Core Configuration
 ```
 PM_TOOL=Linear                # Project management tool
 GIT_PLATFORM=GitHub           # Git platform
-TICKET_PREFIX=MAT             # Ticket prefix (change to your prefix)
-PROJECT_NAME=portfolio-site   # Project name (change to your project)
+TICKET_PREFIX=XXX             # Ticket prefix (change to your prefix)
+PROJECT_NAME=your-project     # Project name (change to your project)
 PROJECT_ROOT=/path/to/project # Project root (change to your path)
 ```
 
@@ -101,21 +101,11 @@ PROJECT_ROOT=/path/to/project # Project root (change to your path)
 #### Essential Command Line Tools
 - **Git** - Version control
 - **GitHub CLI** (`gh`) - Pull request and repository management
-- **Node.js (>=18) + npm/pnpm** - Frontend build, tests, lint/format
-- **Python (>=3.11) + pip/uv** - Backend app, tests, lint/format/typecheck
-- **Playwright CLI** - End-to-end browser testing
-- **ESLint + Prettier** - Frontend linting/formatting
-- **Ruff + Black + Mypy + Pytest** - Backend linting/formatting/type/tests
 
 #### Required MCPs
-- **Linear MCP** - Issue tracking and project management
+- **Linear MCP** - Issue tracking and project management (or your configured PM_TOOL MCP)
 
-### Optional MCPs
-- **Notion MCP** - Documentation and tech stack preferences
-- **Playwright MCP** - Browser automation for E2E testing
-- **Chrome DevTools MCP** - Browser debugging and inspection
-
-Note: If your project’s toolchain changes, update this section and `.agents/README.md` to keep the workflow accurate.
+**Note:** Build tools, language runtimes, testing frameworks, and other project-specific tooling should be documented in `.agents/documentation/PRODUCT-OVERVIEW.md` under the Tech Stack section, not here.
 
 ### Naming Conventions
 
@@ -323,6 +313,14 @@ If decision affects future work, other systems, testing strategy, or performance
 
 ## 7. Documentation Structure
 
+### Table of Contents Policy
+
+Always include numbered ToC for:
+- Rules files (`.agents/rules/*.md`)
+- Systems documentation (`.agents/documentation/systems/*.md`)
+- PRODUCT-OVERVIEW.md
+- Format: Numbered like AGENTS.md (both ToC entries and headings numbered)
+
 ### File Categories
 
 **Workflow Files (Static):**
@@ -331,7 +329,6 @@ If decision affects future work, other systems, testing strategy, or performance
 **Rules (User-Maintained):**
 - `.agents/rules/*.md` - Project patterns and standards
 - **Recommended:** PRE-COMMIT-RULES.md (commit-time checks) and PRE-PUSH-RULES.md (pre-push checks)
-- **TOC Requirement:** Always include Table of Contents for easy navigation
 - **Agent Behavior:** Never automatically create or update rules without user approval
   - If user says "never do X" or "always do Y", ask: "Should I create/update a rule for this pattern?"
   - After milestones, ask: "Did any patterns emerge that should be documented as rules?"
@@ -340,7 +337,6 @@ If decision affects future work, other systems, testing strategy, or performance
 **Documentation (Agent-Maintained):**
 - `.agents/documentation/PRODUCT-OVERVIEW.md` - Vision and tech stack (always loaded)
 - `.agents/documentation/systems/*.md` - How implemented systems work
-  - **TOC Requirement:** Always include Table of Contents for easy navigation
 
 ### Templates
 
@@ -351,11 +347,6 @@ If decision affects future work, other systems, testing strategy, or performance
 - Documentation: PRODUCT-OVERVIEW-TEMPLATE, SYSTEM-DOCUMENTATION-TEMPLATE
 
 **Usage:** Templates are loaded on-demand at checkpoint moments (see Section 8 for notation)
-
-**TOC Requirements:**
-- Templates >100 lines should include Table of Contents
-- Templates <100 lines generally don't need TOCs (serve as fill-in forms)
-- Exception: Add TOC if template has complex nested structure regardless of length
 
 ---
 
