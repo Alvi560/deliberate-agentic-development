@@ -37,21 +37,27 @@
 ## Technical Architecture
 
 ### Tech Stack
+
+**Guidelines:**
+- Link to **official documentation** (not homepages)
+- **No version numbers** - versions live in `package.json`, `pyproject.toml`, etc.
+- Format: `**[Tool Name](https://docs-url)** - Purpose`
+
 #### Frontend
-- **{Framework}** - {Purpose, no version needed}
-- **{Language}** - {Purpose}
-- **{Build Tool}** - {Purpose}
-- **{Styling Solution}** - {Purpose}
+- **[Framework](https://docs-url)** - {Purpose}
+- **[Language](https://docs-url)** - {Purpose}
+- **[Build Tool](https://docs-url)** - {Purpose}
+- **[Styling Solution](https://docs-url)** - {Purpose}
 
 #### Backend
-- **{Framework}** - {Purpose}
-- **{Language}** - {Purpose}
-- **{Database/ORM}** - {Purpose}
+- **[Framework](https://docs-url)** - {Purpose}
+- **[Language](https://docs-url)** - {Purpose}
+- **[Database/ORM](https://docs-url)** - {Purpose}
 
 #### Infrastructure
-- **{Hosting}** - {Purpose}
-- **{Database}** - {Purpose}
-- **{Storage}** - {Purpose}
+- **[Hosting](https://docs-url)** - {Purpose}
+- **[Database](https://docs-url)** - {Purpose}
+- **[Storage](https://docs-url)** - {Purpose}
 
 ### Architecture Overview
 <!-- High-level system architecture - major systems only -->
