@@ -1,8 +1,21 @@
 # Product Overview
 
-> **⚠️ Context Note:** This file is loaded in every workflow session. Keep it brief and focused - aim for under 200 lines. Move detailed implementation specifics to `systems/*.md` files.
+> **⚠️ Context Note:** Keep this file brief in terms of technical details. Move detailed implementation specifics to `systems/*.md` files.
 
-## The Product
+## Table of Contents
+
+1. [The Product](#1-the-product)
+   - [Elevator Pitch](#elevator-pitch)
+   - [Target Users](#target-users)
+   - [Core Features](#core-features)
+   - [Success Metrics](#success-metrics)
+   - [Constraints & Non-Requirements](#constraints--non-requirements)
+2. [Technical Architecture](#2-technical-architecture)
+   - [Tech Stack](#tech-stack)
+   - [Architecture Overview](#architecture-overview)
+   - [Data Flow](#data-flow)
+
+## 1. The Product
 
 ### Elevator Pitch
 {1-2 sentences describing what this product is and why it matters. Focus on the value proposition and unique differentiator.}
@@ -34,7 +47,7 @@
 - {Technical or business constraints}
 - {Scope limitations}
 
-## Technical Architecture
+## 2. Technical Architecture
 
 ### Tech Stack
 

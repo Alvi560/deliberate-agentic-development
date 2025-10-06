@@ -323,6 +323,14 @@ If decision affects future work, other systems, testing strategy, or performance
 
 ## 7. Documentation Structure
 
+### Table of Contents Policy
+
+Always include numbered ToC for:
+- Rules files (`.agents/rules/*.md`)
+- Systems documentation (`.agents/documentation/systems/*.md`)
+- PRODUCT-OVERVIEW.md
+- Format: Numbered like AGENTS.md (both ToC entries and headings numbered)
+
 ### File Categories
 
 **Workflow Files (Static):**
@@ -331,7 +339,6 @@ If decision affects future work, other systems, testing strategy, or performance
 **Rules (User-Maintained):**
 - `.agents/rules/*.md` - Project patterns and standards
 - **Recommended:** PRE-COMMIT-RULES.md (commit-time checks) and PRE-PUSH-RULES.md (pre-push checks)
-- **TOC Requirement:** Always include Table of Contents for easy navigation
 - **Agent Behavior:** Never automatically create or update rules without user approval
   - If user says "never do X" or "always do Y", ask: "Should I create/update a rule for this pattern?"
   - After milestones, ask: "Did any patterns emerge that should be documented as rules?"
@@ -340,7 +347,6 @@ If decision affects future work, other systems, testing strategy, or performance
 **Documentation (Agent-Maintained):**
 - `.agents/documentation/PRODUCT-OVERVIEW.md` - Vision and tech stack (always loaded)
 - `.agents/documentation/systems/*.md` - How implemented systems work
-  - **TOC Requirement:** Always include Table of Contents for easy navigation
 
 ### Templates
 
@@ -351,11 +357,6 @@ If decision affects future work, other systems, testing strategy, or performance
 - Documentation: PRODUCT-OVERVIEW-TEMPLATE, SYSTEM-DOCUMENTATION-TEMPLATE
 
 **Usage:** Templates are loaded on-demand at checkpoint moments (see Section 8 for notation)
-
-**TOC Requirements:**
-- Templates >100 lines should include Table of Contents
-- Templates <100 lines generally don't need TOCs (serve as fill-in forms)
-- Exception: Add TOC if template has complex nested structure regardless of length
 
 ---
 

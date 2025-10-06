@@ -1,20 +1,33 @@
 # [System Name] System
 
-## Overview
+> **Template Note:** This template provides a comprehensive structure. Use only the sections relevant to your system. Delete unused sections rather than leaving them empty.
+
+## Table of Contents
+
+1. [Overview](#1-overview)
+2. [Architecture](#2-architecture)
+3. [Components](#3-components)
+4. [API Reference](#4-api-reference)
+5. [Data Flow](#5-data-flow)
+6. [Configuration](#6-configuration)
+7. [Integration Points](#7-integration-points)
+8. [State Management](#8-state-management)
+9. [Security Considerations](#9-security-considerations)
+10. [Error Handling](#10-error-handling)
+11. [Testing Strategy](#11-testing-strategy)
+12. [Development](#12-development)
+13. [Deployment](#13-deployment)
+14. [Performance](#14-performance)
+15. [Migration Notes](#15-migration-notes)
+16. [Troubleshooting](#16-troubleshooting)
+17. [Future Considerations](#17-future-considerations)
+
+## 1. Overview
 
 [2-3 sentences describing what this system does, its primary responsibility, and its role in the larger application]
 
-<!-- TOC DECISION:
-Add a Table of Contents if this document has:
-- 5+ main sections
-- 200+ lines
-- Nested subsections needing navigation
-- Reference content users will jump around in
 
-Otherwise, skip the TOC to keep it lean.
--->
-
-## Architecture
+## 2. Architecture
 
 ### System Boundaries
 ```
@@ -45,7 +58,7 @@ Otherwise, skip the TOC to keep it lean.
 - **[Key Library]** - v[X.Y.Z] - [Docs](URL)
 - **[Database/Service]** - [Docs](URL)
 
-## Components
+## 3. Components
 
 ### Core Modules
 
@@ -72,7 +85,7 @@ interface [ModelName] {
 }
 ```
 
-## API Reference
+## 4. API Reference
 
 ### Endpoints (for API systems)
 
@@ -104,7 +117,7 @@ interface [ModelName] {
 const result = functionName(value);
 ```
 
-## Data Flow
+## 5. Data Flow
 
 ### [Primary Flow Name]
 1. **Input:** [Where data enters]
@@ -119,7 +132,7 @@ const result = functionName(value);
 3. **Recovery:** [Recovery strategy]
 4. **Response:** [What user/system sees]
 
-## Configuration
+## 6. Configuration
 
 ### Required Environment Variables
 ```bash
@@ -137,7 +150,7 @@ API_KEY=           # Third-party API key
 ### Optional Configuration
 - `CONFIG_OPTION` - [Default: value] - [Description]
 
-## Integration Points
+## 7. Integration Points
 
 ### Dependencies (What this system needs)
 - **[System/Service Name]**
@@ -150,7 +163,7 @@ API_KEY=           # Third-party API key
   - Uses: [What functionality]
   - Critical: Yes/No
 
-## State Management
+## 8. State Management
 
 ### Persistent State
 - **[Database/Table]:** [What's stored]
@@ -160,7 +173,7 @@ API_KEY=           # Third-party API key
 - **[In-memory structure]:** [What it holds]
 - **[Session data]:** [What's tracked]
 
-## Security Considerations
+## 9. Security Considerations
 
 ### Authentication & Authorization
 - [How auth is handled]
@@ -174,7 +187,7 @@ API_KEY=           # Third-party API key
 - [Limits applied]
 - [Throttling strategy]
 
-## Error Handling
+## 10. Error Handling
 
 ### Common Errors
 | Error | Cause | Resolution |
@@ -187,7 +200,7 @@ API_KEY=           # Third-party API key
 - **Alerts:** [When triggered]
 - **Logs:** [What's logged]
 
-## Testing Strategy
+## 11. Testing Strategy
 
 ### Unit Tests
 **Location:** `[path]/[component].test.ts`
@@ -203,7 +216,7 @@ API_KEY=           # Third-party API key
 **Scenarios:** [What user flows are tested]
 **Run:** `npm run test:e2e`
 
-## Development
+## 12. Development
 
 ### Local Setup
 ```bash
@@ -233,7 +246,7 @@ npm run lint
 npm run typecheck
 ```
 
-## Deployment
+## 13. Deployment
 
 ### Build Process
 1. [Build step 1]
@@ -246,7 +259,7 @@ npm run typecheck
 ### Rollback Strategy
 [How to rollback if deployment fails]
 
-## Performance
+## 14. Performance
 
 ### Optimization Points
 - [Caching strategy]
@@ -257,7 +270,7 @@ npm run typecheck
 - [Operation]: ~[X]ms
 - [Throughput]: [X] req/sec
 
-## Migration Notes
+## 15. Migration Notes
 
 ### From Legacy System
 [If replacing old system, migration strategy]
@@ -265,7 +278,7 @@ npm run typecheck
 ### Breaking Changes
 [Version history of breaking changes]
 
-## Troubleshooting
+## 16. Troubleshooting
 
 ### Common Issues
 
@@ -278,7 +291,7 @@ npm run typecheck
 **Symptoms:** [What you see]
 **Solution:** [How to fix]
 
-## Future Considerations
+## 17. Future Considerations
 
 ### Planned Improvements
 - [ ] [Improvement with rationale]
@@ -292,10 +305,3 @@ npm run typecheck
 - [Scaling strategy when needed]
 
 ---
-
-**Status:** [Active|In Development|Deprecated]
-**Owner:** [Team/Person responsible]
-**Last Updated:** [Date]
-**Related Docs:**
-- [Link to related system]
-- [Link to architecture docs]
